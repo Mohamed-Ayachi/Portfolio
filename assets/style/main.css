@@ -1,0 +1,8 @@
+/* Import order matters for proper cascading */
+@import 'variables.css';    /* Variables first - colors, sizes, etc. */
+@import 'base.css';         /* Reset and base styles */
+@import 'layout.css';       /* Page structure and grid layouts */
+@import 'components.css';   /* Reusable components */
+@import 'animations.css';   /* Animations and transitions */
+@import 'themes.css';       /* Theme variations */
+@import 'responsive.css';   /* Media queries last */
