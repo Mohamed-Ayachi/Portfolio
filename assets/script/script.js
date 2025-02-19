@@ -511,3 +511,132 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// Add touch swipe functionality
+let touchStartX = 0;
+let touchEndX = 0;
+let touchStartY = 0;
+let touchEndY = 0;
+
+// Listen for touch events on the body
+document.body.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    touchStartY = e.changedTouches[0].screenY;
+});
+
+document.body.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    touchEndY = e.changedTouches[0].screenY;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    const diffX = touchStartX - touchEndX;
+    const diffY = touchStartY - touchEndY;
+    
+    // Only handle horizontal swipes if they're more horizontal than vertical
+    if (Math.abs(diffX) > Math.abs(diffY)) {
+        // Minimum swipe distance (in pixels)
+        const minSwipeDistance = 50;
+        
+        if (Math.abs(diffX) > minSwipeDistance) {
+            if (diffX > 0) {
+                // Swiped left, go to next page
+                navigateToPage('right');
+            } else {
+                // Swiped right, go to previous page
+                navigateToPage('left');
+            }
+        }
+    }
+}
+
+// Add visual feedback for touch
+document.body.addEventListener('touchstart', () => {
+    document.body.style.transition = 'transform 0.2s ease';
+});
+
+document.body.addEventListener('touchmove', (e) => {
+    const diff = e.changedTouches[0].screenX - touchStartX;
+    // Only move if the swipe is more horizontal than vertical
+    if (Math.abs(diff) > Math.abs(e.changedTouches[0].screenY - touchStartY)) {
+        // Prevent default scrolling when swiping horizontally
+        e.preventDefault();
+        // Add a subtle transform effect while swiping
+        if (Math.abs(diff) < window.innerWidth / 2) {
+            document.body.style.transform = `translateX(${diff / 4}px)`;
+        }
+    }
+}, { passive: false });
+
+document.body.addEventListener('touchend', () => {
+    document.body.style.transition = 'transform 0.3s ease';
+    document.body.style.transform = '';
+});
+
+// Add visual indicator for swipe
+const swipeIndicator = document.createElement('div');
+swipeIndicator.className = 'swipe-indicator';
+swipeIndicator.innerHTML = `
+    <div class="swipe-icon">
+        <i class="fas fa-chevron-left"></i>
+        <i class="fas fa-mobile-alt"></i>
+        <i class="fas fa-chevron-right"></i>
+    </div>
+    <span>Swipe to navigate</span>
+`;
+document.body.appendChild(swipeIndicator);
+
+// Show swipe indicator on first visit
+if (!localStorage.getItem('hasSeenSwipeIndicator')) {
+    setTimeout(() => {
+        swipeIndicator.classList.add('show');
+        setTimeout(() => {
+            swipeIndicator.classList.remove('show');
+        }, 3000);
+        localStorage.setItem('hasSeenSwipeIndicator', 'true');
+    }, 2000);
+}
+
+// Update particle creation for more dynamic effects
+function createParticles() {
+    const particlesContainer = document.createElement('div');
+    particlesContainer.className = 'particles';
+    
+    const hero = document.querySelector('.hero');
+    if (hero) {
+        hero.appendChild(particlesContainer);
+        
+        // Increased number of particles
+        for (let i = 0; i < 40; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            
+            // More varied sizes
+            const size = 6 + Math.random() * 6;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            
+            // Random position across full width
+            particle.style.left = Math.random() * 100 + '%';
+            
+            // Start from random positions
+            particle.style.top = Math.random() * 100 + 'vh';
+            
+            // Varied animation duration
+            const duration = 8 + Math.random() * 8;
+            particle.style.animationDuration = `${duration}s`;
+            
+            // Random delays for more natural flow
+            particle.style.animationDelay = -Math.random() * duration + 's';
+            
+            // Varied opacity
+            particle.style.opacity = 0.4 + Math.random() * 0.3;
+            
+            particlesContainer.appendChild(particle);
+        }
+    }
+}
+
+// Initialize particles when page loads
+document.addEventListener('DOMContentLoaded', createParticles);
