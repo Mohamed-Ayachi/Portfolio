@@ -79,11 +79,28 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.href = pages[index];
         });
     });
+
+    // Show scroll hint for new visitors
+    if (!localStorage.getItem('hasSeenScrollHint')) {
+        const scrollHint = document.createElement('div');
+        scrollHint.className = 'scroll-hint';
+        scrollHint.textContent = 'Scroll to navigate between pages';
+        document.body.appendChild(scrollHint);
+
+        setTimeout(() => {
+            scrollHint.classList.add('show');
+            setTimeout(() => {
+                scrollHint.classList.remove('show');
+                localStorage.setItem('hasSeenScrollHint', 'true');
+            }, 3000);
+        }, 2000);
+    }
 });
 
 // Enhanced page transitions
 function navigateToPage(direction) {
-    const transitionOverlay = document.createElement('div');
+    const transitionOverlay = document.querySelector('.page-transition-overlay') || 
+                             document.createElement('div');
     transitionOverlay.className = 'page-transition-overlay';
     document.body.appendChild(transitionOverlay);
 
@@ -95,6 +112,11 @@ function navigateToPage(direction) {
     } else {
         currentPageIndex = (currentPageIndex - 1 + pages.length) % pages.length;
     }
+
+    // Add a visual indication of scroll direction
+    const scrollIndicator = document.createElement('div');
+    scrollIndicator.className = `scroll-direction-indicator ${direction}`;
+    document.body.appendChild(scrollIndicator);
     
     setTimeout(() => {
         window.location.href = pages[currentPageIndex];
@@ -640,3 +662,70 @@ function createParticles() {
 
 // Initialize particles when page loads
 document.addEventListener('DOMContentLoaded', createParticles);
+
+// Remove the wheel event listener and add mouse swipe handling
+let mouseStartX = 0;
+let mouseStartY = 0;
+let isDragging = false;
+
+// Mouse events for desktop swipe
+document.querySelector('.main-content').addEventListener('mousedown', (e) => {
+    // Don't trigger swipe if user is selecting text
+    if (window.getSelection().toString()) return;
+    
+    mouseStartX = e.clientX;
+    mouseStartY = e.clientY;
+    isDragging = true;
+});
+
+document.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    
+    const currentX = e.clientX;
+    const currentY = e.clientY;
+    const diffX = mouseStartX - currentX;
+    const diffY = mouseStartY - currentY;
+    
+    // Only handle horizontal swipes if they're more horizontal than vertical
+    if (Math.abs(diffX) > Math.abs(diffY)) {
+        e.preventDefault(); // Prevent scrolling only during horizontal swipe
+        // Add a subtle transform effect while swiping
+        if (Math.abs(diffX) < window.innerWidth / 2) {
+            document.body.style.transform = `translateX(${-diffX/4}px)`;
+        }
+    }
+});
+
+document.addEventListener('mouseup', (e) => {
+    if (!isDragging) return;
+    
+    const diffX = mouseStartX - e.clientX;
+    const diffY = mouseStartY - e.clientY;
+    
+    // Only handle horizontal swipes if they're more horizontal than vertical
+    if (Math.abs(diffX) > Math.abs(diffY)) {
+        // Minimum swipe distance (in pixels)
+        const minSwipeDistance = 100;
+        
+        if (Math.abs(diffX) > minSwipeDistance) {
+            if (diffX > 0) {
+                // Swiped left, go to next page
+                navigateToPage('right');
+            } else {
+                // Swiped right, go to previous page
+                navigateToPage('left');
+            }
+        } else {
+            // Reset transform if swipe wasn't far enough
+            document.body.style.transform = '';
+        }
+    }
+    
+    isDragging = false;
+    document.body.style.transform = '';
+});
+
+// Prevent default drag behaviors
+document.addEventListener('dragstart', (e) => {
+    e.preventDefault();
+});

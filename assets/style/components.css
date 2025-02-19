@@ -1740,4 +1740,150 @@ body {
 .portfolio-theme .theme-toggle::before {
     content: '🌙';
     left: 35px;
+}
+
+/* Add these styles for scroll direction indicators */
+.scroll-direction-indicator {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    opacity: 0;
+    animation: indicatorFade 0.6s ease-out;
+    z-index: 1001;
+}
+
+.scroll-direction-indicator.left {
+    left: 30px;
+}
+
+.scroll-direction-indicator.right {
+    right: 30px;
+}
+
+.scroll-direction-indicator::before {
+    content: '';
+    width: 15px;
+    height: 15px;
+    border-top: 3px solid white;
+    border-right: 3px solid white;
+    position: absolute;
+}
+
+.scroll-direction-indicator.left::before {
+    transform: rotate(-135deg);
+    margin-left: 5px;
+}
+
+.scroll-direction-indicator.right::before {
+    transform: rotate(45deg);
+    margin-right: 5px;
+}
+
+@keyframes indicatorFade {
+    0% {
+        opacity: 0;
+        transform: translateY(-50%) scale(0.8);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-50%) scale(1.1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-50%) scale(1);
+    }
+}
+
+/* Add a scroll hint for new visitors */
+.scroll-hint {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.scroll-hint.show {
+    opacity: 1;
+}
+
+.portfolio-theme .scroll-hint {
+    background: rgba(157, 78, 221, 0.9);
+}
+
+/* Disable vertical scrolling when needed */
+.disable-scroll {
+    overflow: hidden;
+}
+
+/* Update existing navigation arrows for better visibility */
+.navigation-arrows .arrow {
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.navigation-arrows .arrow:hover {
+    opacity: 1;
+}
+
+/* Add scroll blocking for touch devices */
+@media (pointer: fine) {
+    body {
+        overflow-x: hidden; /* Only prevent horizontal scroll */
+        overflow-y: auto;  /* Allow vertical scroll */
+    }
+}
+
+/* Update cursor and selection styles */
+body {
+    user-select: text; /* Allow text selection */
+    cursor: default; /* Default cursor */
+}
+
+/* Only show grab cursor when hovering over the main content area */
+.main-content {
+    cursor: grab;
+}
+
+.main-content:active {
+    cursor: grabbing;
+}
+
+/* Make text selectable again */
+p, h1, h2, h3, h4, h5, h6 {
+    user-select: text;
+}
+
+/* Update scroll hint text */
+.scroll-hint {
+    /* ... existing styles ... */
+}
+
+.scroll-hint::before {
+    content: '← Swipe to navigate →';
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Make sure images aren't draggable */
+img {
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
 } 
