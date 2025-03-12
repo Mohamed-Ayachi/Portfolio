@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Mohamed's Portfolio - Software Developer</title>
+    <meta name="description" content="Portfolio of Mohamed, a Software Developer specializing in responsive web applications, backend development, and UI/UX design.">
+    <meta name="keywords" content="web developer, full stack developer, PHP developer, JavaScript developer, UI/UX designer, portfolio">
+    <meta name="author" content="Mohamed">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Mohamed's Portfolio - Software Developer">
+    <meta property="og:description" content="Portfolio of Mohamed, a Software Developer specializing in responsive web applications, backend development, and UI/UX design.">
+    <meta property="og:image" content="assets/img/og-image.jpg">
+    <meta property="og:url" content="https://volert.github.io/Portfolio">
+    <meta property="og:type" content="website">
+    
+
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://volert.github.io/Portfolio">
+    
+    <!-- Existing CSS and JS -->
+    <link rel="stylesheet" href="assets/style/main.css">
+    <script src="assets/script/script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="page-transition-overlay"></div>
+    <div class="loader">
+        <div class="loader-content">
+            <div class="spinner"></div>
+            <span>Loading...</span>
+        </div>
+    </div>
+
+    <div class="cursor-follower"></div>
+
+    <header>
+        <nav class="navbar" aria-label="Main navigation">
+            <div class="logo" role="banner">Portfolio</div>
+            <div class="nav-controls">
+                <div class="language-switcher">
+                    <button class="language-btn" aria-label="Switch language">
+                        <i class="fas fa-globe"></i>
+                        <span class="current-lang">EN</span>
+                    </button>
+                    <div class="language-dropdown">
+                        <button class="lang-option" data-lang="en">
+                            <span class="lang-code">EN</span>
+                            <span class="lang-name">English</span>
+                        </button>
+                        <button class="lang-option" data-lang="nl">
+                            <span class="lang-code">NL</span>
+                            <span class="lang-name">Nederlands</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" role="navigation">
+                <li><a href="index.html" aria-current="page" data-i18n="home">Home</a></li>
+                <li><a href="portfolio.html" data-i18n="projects">Projects</a></li>
+                <li><a href="contact.html" data-i18n="contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content" role="main">
+        <!-- Hero Section -->
+        <section id="home" class="hero fade-in" aria-label="Introduction">
+            <div class="hero-content">
+                <div class="hero-grid">
+                    <div class="hero-text slide-in-left">
+                        <div class="intro-line" aria-hidden="true"></div>
+                        <h1 class="gradient-text" data-i18n="greeting">Hi, I'm Mohamed</h1>
+                        <p class="hero-subtitle">I'm a <span class="typing" aria-label="Dynamic text showing roles"></span></p>
+                        <p class="hero-description" data-i18n="heroDescription">
+                            Software Developer specializing in creating responsive and dynamic web applications. Experienced in both frontend and backend development.
+                        </p>
+                        
+                        <div class="tech-stack" aria-label="Technical skills">
+                            <div class="tech-icon" data-tooltip="HTML5" aria-label="HTML5">
+                                <i class="fab fa-html5" aria-hidden="true"></i>
+                            </div>
+                            <div class="tech-icon" data-tooltip="CSS3">
+                                <i class="fab fa-css3-alt"></i>
+                            </div>
+                            <div class="tech-icon" data-tooltip="JavaScript">
+                                <i class="fab fa-js"></i>
+                            </div>
+                            <div class="tech-icon" data-tooltip="PHP">
+                                <i class="fab fa-php"></i>
+                            </div>
+                            <div class="tech-icon" data-tooltip="Node.js">
+                                <i class="fab fa-node-js"></i>
+                            </div>
+                            <div class="tech-icon" data-tooltip="MySQL">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="tech-icon" data-tooltip="Python">
+                                <i class="fab fa-python"></i>
+                            </div>
+                            <div class="tech-icon" data-tooltip="Git">
+                                <i class="fab fa-git-alt"></i>
+                            </div>
+                        </div>
+
+                        <div class="hero-buttons">
+                            <a href="contact.html" class="cta-button" aria-label="Contact Me">
+                                <span data-i18n="contactMe">Contact Me</span>
+                                <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                            </a>
+                            <a href="#" class="secondary-button" aria-label="Download CV">
+                                <i class="fas fa-download" aria-hidden="true"></i>
+                                <span data-i18n="downloadCV">Download CV</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="hero-image slide-in-right">
+                        <div class="profile-container">
+                            <div class="profile-image-wrapper">
+                                <div class="decorative-square square-1"></div>
+                                <div class="decorative-square square-2"></div>
+                                <div class="lines-pattern"></div>
+                                <img src="assets/img/profile.jpeg" 
+                                     alt="Mohamed - Software Developer" 
+                                     class="profile-image" 
+                                     width="400" 
+                                     height="400"
+                                     loading="eager"
+                                     draggable="false">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="section-divider">
+                <span class="divider-line"></span>
+                <i class="fas fa-user"></i>
+                <span class="divider-line"></span>
+            </div>
+            <h2 class="section-title" data-i18n="aboutMe">About Me</h2>
+            <div class="about-container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3 data-i18n="whoIAm">Who I Am</h3>
+                        <p data-i18n="aboutDescription">I'm a 17 year old student from the Netherlands. Currently, I'm studying Software Development at the Grafisch Lyceum Rotterdam. I'm a very passionate person when it comes to programming and I love to learn new things. I'm a very fast learner and I'm always looking for new challenges.</p>
+                        
+                        <div class="about-grid">
+                            <div class="about-card scale-in">
+                                <i class="fas fa-code"></i>
+                                <h4 data-i18n="webDev">Web Development</h4>
+                                <p data-i18n="webDevDesc">Building responsive and dynamic web applications using modern technologies.</p>
+                            </div>
+                            <div class="about-card scale-in">
+                                <i class="fas fa-database"></i>
+                                <h4 data-i18n="backendDev">Backend Development</h4>
+                                <p data-i18n="backendDevDesc">Creating robust server-side applications and efficient databases.</p>
+                            </div>
+                            <div class="about-card scale-in">
+                                <i class="fas fa-pencil-ruler"></i>
+                                <h4 data-i18n="uiux">UI/UX Design</h4>
+                                <p data-i18n="uiuxDesc">Designing intuitive and engaging user interfaces for better experiences.</p>
+                            </div>
+                            <div class="about-card scale-in">
+                                <i class="fas fa-database"></i>
+                                <h4 data-i18n="dbCreation">Database Creation</h4>
+                                <p data-i18n="dbCreationDesc">Designing and implementing efficient database structures and management systems.</p>
+                            </div>
+                            <div class="about-card scale-in">
+                                <i class="fas fa-tasks"></i>
+                                <h4 data-i18n="scrumAgile">Scrum and Agile</h4>
+                                <p data-i18n="scrumAgileDesc">Experienced in agile methodologies and scrum practices for efficient project delivery.</p>
+                            </div>
+                            <div class="about-card scale-in">
+                                <i class="fas fa-users"></i>
+                                <h4 data-i18n="teamWorker">Team Worker</h4>
+                                <p data-i18n="teamWorkerDesc">Strong collaboration skills and experience working effectively in diverse teams.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="featured-projects" class="projects-section fade-in">
+            <div class="section-divider">
+                <span class="divider-line"></span>
+                <i class="fas fa-code"></i>
+                <span class="divider-line"></span>
+            </div>
+            <h2 class="section-title" data-i18n="featuredProjects">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card scale-in">
+                    <img src="assets/img/project1.png" alt="Stop de Ontkoking" draggable="false">
+                    <h3>Stop de Ontkoking</h3>
+                    <p>A recipe and lifestyle website built with HTML, PHP, CSS, and JavaScript. Features user authentication and a responsive design.</p>
+                    <div class="project-links">
+                        <a href="https://100180.stu.sd-lab.nl/beroeps/Stop-de-ontkoking/index.html" class="cta-button preview-btn">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span>Live Demo</span>
+                        </a>
+                        <a href="#" class="secondary-button">
+                            <i class="fab fa-github"></i>
+                            <span>Source</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card scale-in">
+                    <img src="assets/img/2048-game.png" alt="2048 Game" draggable="false">
+                    <h3>2048 Game</h3>
+                    <p>A web-based implementation of the classic 2048 puzzle game. Built with JavaScript, featuring smooth animations and score tracking.</p>
+                    <div class="project-links">
+                        <a href="https://100180.stu.sd-lab.nl/interface/2048/" class="cta-button preview-btn">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span>Live Demo</span>
+                        </a>
+                        <a href="#" class="secondary-button">
+                            <i class="fab fa-github"></i>
+                            <span>Source</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card scale-in">
+                    <img src="assets/img/quiz-app.png" alt="Coding Quiz App" draggable="false">
+                    <h3>Quizzie - Coding Quiz App</h3>
+                    <p>An interactive coding quiz application with user authentication, progress tracking, and a diverse range of programming challenges.</p>
+                    <div class="project-links">
+                        <a href="https://100180.stu.sd-lab.nl/beroeps/quiz/home/index.html" class="cta-button preview-btn">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span>Live Demo</span>
+                        </a>
+                        <a href="#" class="secondary-button">
+                            <i class="fab fa-github"></i>
+                            <span>Source</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="view-all-projects">
+                <a href="portfolio.html" class="cta-button">
+                    <span data-i18n="viewAll">View All Projects</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Add structured data -->
+        <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "Person",
+            "name": "Mohamed",
+            "jobTitle": "Software Developer",
+            "url": "https://your-domain.com",
+            "sameAs": [
+                "https://github.com/your-username",
+                "https://linkedin.com/in/your-profile"
+            ],
+            "knowsAbout": [
+                "Web Development",
+                "JavaScript",
+                "PHP",
+                "UI/UX Design",
+                "Database Management"
+            ]
+        }
+        </script>
+    </main>
+
+    <div class="navigation-arrows" role="navigation" aria-label="Page navigation">
+        <button class="arrow left" aria-label="Previous page">
+            <i class="fas fa-chevron-left" aria-hidden="true"></i>
+        </button>
+        <button class="arrow right" aria-label="Next page">
+            <i class="fas fa-chevron-right" aria-hidden="true"></i>
+        </button>
+    </div>
+
+    <div class="page-indicator" role="navigation" aria-label="Page indicator">
+        <span class="active" aria-label="Current page: Home" aria-current="true"></span>
+        <span aria-label="Projects page"></span>
+        <span aria-label="Contact page"></span>
+    </div>
+
+    <!-- Preview Modal Structure -->
+    <div class="preview-overlay"></div>
+    <div class="preview-modal">
+        <div class="close-preview">
+            <i class="fas fa-times"></i>
+        </div>
+        <iframe src="" frameborder="0" title="Project Preview"></iframe>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <div class="footer-logo">Portfolio</div>
+            </div>
+            <div class="footer-right">
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="portfolio.html">Projects</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Mohamed. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

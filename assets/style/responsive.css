@@ -1,0 +1,104 @@
+@media (max-width: 1024px) {
+    .hero-grid {
+        grid-template-columns: 1fr 300px;
+        gap: 2rem;
+    }
+
+    .profile-container {
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem;
+    }
+
+    .hero, .about-section {
+        padding: 2rem 1rem;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .hero-text {
+        align-items: center;
+        text-align: center;
+        order: 2;
+    }
+
+    .hero-image {
+        justify-content: center;
+        order: 1;
+    }
+
+    .tech-stack {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+    }
+
+    .about-grid,
+    .stats-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .cta-button, 
+    .secondary-button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: var(--bg-color);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right var(--transition-speed) ease;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 0 1rem;
+    }
+
+    .contact h2 {
+        font-size: 2.2rem;
+    }
+
+    .social-links {
+        flex-wrap: wrap;
+    }
+
+    .social-link {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .contact-form-wrapper {
+        padding: 2rem;
+    }
+} 

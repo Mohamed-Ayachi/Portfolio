@@ -1,0 +1,22 @@
+:root {
+    /* Light theme colors */
+    --primary-color: #8BB8E8;    /* Powder blue */
+    --secondary-color: #FFE8C8;  /* Very light sandy color */
+    --text-color: #2C3E50;      /* Dark blue-gray */
+    --bg-color: #E6F3FF;        /* Light powder blue */
+    --accent-color: #FFF6EC;    /* Extremely light sandy */
+    --hover-color: #6A9ED4;     /* Darker powder blue */
+
+    /* Dark theme colors */
+    --portfolio-primary: #9D4EDD;   /* Bright purple */
+    --portfolio-secondary: #2D2D2D; /* Dark gray */
+    --portfolio-text: #FFFFFF;      /* White */
+    --portfolio-bg: #1A1A1A;        /* Very dark gray */
+    --portfolio-accent: #3C096C;    /* Dark purple */
+    --portfolio-hover: #B75CFF;     /* Light purple */
+
+    /* Common variables */
+    --navbar-height: 70px;
+    --border-radius: 15px;
+    --transition-speed: 0.3s;
+} 

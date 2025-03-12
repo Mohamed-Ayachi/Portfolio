@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Portfolio</title>
+    <link rel="stylesheet" href="assets/style/main.css">
+    <script src="assets/script/script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="loader">
+        <div class="loader-content">
+            <div class="spinner"></div>
+            <span>Loading...</span>
+        </div>
+    </div>
+
+    <div class="cursor-follower"></div>
+
+    <nav class="navbar">
+        <div class="logo">Portfolio</div>
+        <div class="nav-controls">
+            <div class="language-switcher">
+                <button class="language-btn" aria-label="Switch language">
+                    <i class="fas fa-globe"></i>
+                    <span class="current-lang">EN</span>
+                </button>
+                <div class="language-dropdown">
+                    <button class="lang-option" data-lang="en">
+                        <span class="lang-code">EN</span>
+                        <span class="lang-name">English</span>
+                    </button>
+                    <button class="lang-option" data-lang="nl">
+                        <span class="lang-code">NL</span>
+                        <span class="lang-name">Nederlands</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" data-i18n="home">Home</a></li>
+            <li><a href="portfolio.html" class="active" data-i18n="projects">Projects</a></li>
+            <li><a href="contact.html" data-i18n="contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <section id="projects" class="projects-section">
+            <h2 class="section-title">My Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="assets/img/project1.png" alt="Stop de Ontkoking" draggable="false">
+                    <h3>Stop de Ontkoking</h3>
+                    <p>A recipe and lifestyle website built with HTML, PHP, CSS, and JavaScript. Features user authentication and a responsive design.</p>
+                    <div class="project-links">
+                        <a href="https://100180.stu.sd-lab.nl/beroeps/Stop-de-ontkoking/index.html" class="cta-button preview-btn">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span>Live Demo</span>
+                        </a>
+                        <a href="#" class="secondary-button">
+                            <i class="fab fa-github"></i>
+                            <span>Source</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="assets/img/2048-game.png" alt="2048 Game" draggable="false">
+                    <h3>2048 Game</h3>
+                    <p>A web-based implementation of the classic 2048 puzzle game. Built with JavaScript, featuring smooth animations and score tracking.</p>
+                    <div class="project-links">
+                        <a href="https://100180.stu.sd-lab.nl/interface/2048/" class="cta-button preview-btn">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span>Live Demo</span>
+                        </a>
+                        <a href="#" class="secondary-button">
+                            <i class="fab fa-github"></i>
+                            <span>Source</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="assets/img/quiz-app.png" alt="Coding Quiz App" draggable="false">
+                    <h3>Quizzie - Coding Quiz App</h3>
+                    <p>An interactive coding quiz application with user authentication, progress tracking, and a diverse range of programming challenges.</p>
+                    <div class="project-links">
+                        <a href="https://100180.stu.sd-lab.nl/beroeps/quiz/home/index.html" class="cta-button preview-btn">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span>Live Demo</span>
+                        </a>
+                        <a href="#" class="secondary-button">
+                            <i class="fab fa-github"></i>
+                            <span>Source</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="navigation-arrows">
+        <div class="arrow left">
+            <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="arrow right">
+            <i class="fas fa-chevron-right"></i>
+        </div>
+    </div>
+
+    <div class="page-indicator">
+        <span></span>
+        <span class="active"></span>
+        <span></span>
+    </div>
+
+    <div class="preview-overlay"></div>
+    <div class="preview-modal">
+        <div class="close-preview">
+            <i class="fas fa-times"></i>
+        </div>
+        <iframe src="" frameborder="0" title="Project Preview"></iframe>
+    </div>
+</body>
+</html>
